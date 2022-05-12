@@ -119,7 +119,7 @@ class MarcaController extends Controller
         // retorno respuesta - flashing de mensaje ok
         return redirect('/marcas')->with(['mensaje' =>'Marca: '.$mkNombre.' modificada correctamente.']);
     }
-    /*
+
     private function productoPorMarca( $idMarca )
     {
         // $check = Producto::where('idMarca', $idMarca)->first();//si hay o no hay
@@ -127,7 +127,7 @@ class MarcaController extends Controller
         // $check = Producto::where('idMarca', $idMarca)->count();//cuantos hay
         return $check;
     }
-*/
+
     public function confirm( $id )
     {
         // obtenemos datos de la marca
