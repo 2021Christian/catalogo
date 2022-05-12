@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\CategoriaController;
-
+use App\Http\Controllers\ProductoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,3 +31,8 @@ Route::patch( '/categoria/update', [ CategoriaController::class, 'update' ]);
 Route::get( '/categoria/delete/{id}', [ CategoriaController::class, 'confirm' ]);
 Route::delete( '/categoria/destroy', [ CategoriaController::class, 'destroy'] );
 
+
+######## CRUD Categorias #############
+Route::get('/productos', [ ProductoController::class, 'index' ]);
+Route::get('/producto/create', [ ProductoController::class, 'create' ]);
+Route::post('/producto/store', [ ProductoController::class, 'store' ]);
