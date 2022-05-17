@@ -213,14 +213,26 @@ class ProductoController extends Controller
             ->with( [ 'mensaje'=>'Producto: '.$request->prdNombre.' modificado correctamente.' ] );
     }
 
+    public function confirm( $id )
+    {
+        $Producto = Producto::with([ 'getMarca', 'getCategoria' ])
+                                ->find ( $id );
+
+        return view( 'productoDelete', [ 'Producto' => $Producto ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy( Request $request )
     {
-        //
+        Producto::destroy( $request->idProducto );
+
+        // redireccion + mensaje ok
+        return redirect('/productos')
+            ->with( [ 'mensaje'=>'Producto: '.$request->prdNombre.' modificado correctamente.' ] );
     }
 }
